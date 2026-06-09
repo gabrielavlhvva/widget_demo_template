@@ -2,54 +2,226 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BI SmartBilling Agent</title>
 
-<title>ElevenLabs Demo Template</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #e7e7e7;
+    * {
+      box-sizing: border-box;
     }
 
-    .hero {
-      height: 500px;
-      position: relative;
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
       background: #e7e7e7;
+      color: #23384d;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      min-height: 640px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 30px 30px, rgba(170,170,170,0.18) 0 18px, transparent 18px),
+        radial-gradient(circle at 90px 90px, rgba(170,170,170,0.10) 0 18px, transparent 18px),
+        linear-gradient(0deg, rgba(255,255,255,0.28), rgba(255,255,255,0.28)),
+        #e7e7e7;
+      background-size: 120px 120px, 120px 120px, auto, auto;
+      padding: 40px 24px 90px;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 520px;
+    }
+
+    /* Left circular visual */
+    .circle-wrap {
+      position: absolute;
+      left: 70px;
+      top: 60px;
+      width: 420px;
+      height: 420px;
+    }
+
+    .circle-accent {
+      position: absolute;
+      left: -36px;
+      top: 145px;
+      width: 112px;
+      height: 112px;
+      background: #f39a00;
+      border-radius: 50%;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      z-index: 1;
     }
 
     .circle-image {
       position: absolute;
-      left: 80px;
-      top: 120px;
-      width: 280px;
-      height: 280px;
+      width: 390px;
+      height: 390px;
       border-radius: 50%;
-      border: 4px solid white;
-      background: url("toll.jpg") center/cover no-repeat;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.82);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+      background: #7aa8d0;
+      z-index: 2;
     }
 
+    .circle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Orange banner */
     .announcement {
       position: absolute;
-      left: 300px;
-      top: 300px;
-      right: 100px;
-      background: orange;
+      left: 420px;
+      right: 36px;
+      top: 320px;
+      background: #f39a00;
       color: white;
-      padding: 20px;
-      font-weight: bold;
       font-size: 18px;
+      font-weight: 700;
+      padding: 18px 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
 
-    .widget-anchor {
+    /* Floating contact icons */
+    .floating-icons {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      right: 18px;
+      top: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 20;
+    }
+
+    .floating-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #284b72;
+      color: #284b72;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    /* ElevenLabs widget */
+    elevenlabs-convai {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 30;
+    }
+
+    /* Footer */
+    .footer {
+      background: #203a56;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    /* Tablet */
+    @media (max-width: 1100px) {
+      .hero {
+        min-height: auto;
+        padding-bottom: 60px;
+      }
+
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .circle-wrap,
+      .announcement {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: auto;
+        margin: 0 auto 24px;
+      }
+
+      .circle-wrap {
+        width: 390px;
+        height: 390px;
+      }
+
+      .announcement {
+        max-width: 760px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 24px 16px 40px;
+      }
+
+      .circle-wrap {
+        width: 280px;
+        height: 280px;
+      }
+
+      .circle-image {
+        width: 280px;
+        height: 280px;
+      }
+
+      .circle-accent {
+        width: 88px;
+        height: 88px;
+        left: -16px;
+        top: 96px;
+      }
+
+      .announcement {
+        font-size: 16px;
+        padding: 14px 16px;
+      }
+
+      .floating-icons {
+        display: none;
+      }
     }
   </style>
 </head>
-
 <body>
+
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="circle-wrap">
+        <div class="circle-accent"></div>
+        <div class="circle-image">
+          <img src="toll.jpg" alt="Toll road" />
+        </div>
+      </div>
+
+      <div class="announcement">
+        SmartBilling assistant for tolling, invoices and account support
+      </div>
+
+    </div>
+  </section>
 
   <div class="floating-icons">
     <div class="floating-icon">✉️</div>
