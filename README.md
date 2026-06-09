@@ -21,14 +21,19 @@ The goal is to quickly spin up a branded demo (web + voice/chatbot) in just a fe
 ## 1. Create a new repo from this template
 
 - Click **"Use this template"**
-- Name your new repo (e.g. `bina-istra-demo`)
+- Name your new repo (for example: `bina-istra-demo`)
 
 ---
 
-## 2. Update the agent ID & Image
+## 2. Update the agent ID and image
 
 Open `index.html` and update this line:
 
 ```html
 <elevenlabs-convai
   agent-id="REPLACE_AGENT_ID"
+
+---
+# How to visit the site
+
+- Click on Settings, Open Pages and there you will find a Button named "Visit site", you need to click on it.
