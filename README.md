@@ -2,8 +2,7 @@
 
 This repository provides a reusable template for creating demo websites with an embedded ElevenLabs Conversational AI agent.
 
-The goal is to quickly spin up a branded demo (web + voice/chatbot) in just a few minutes.
-
+The objective is to enable fast deployment of branded demos (web + voice/chatbot) that can be shared with clients, sales teams, and stakeholders.
 ---
 
 # What this template includes
